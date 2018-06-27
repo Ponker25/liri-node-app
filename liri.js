@@ -81,7 +81,10 @@ function runSpotify(songTitle) {
 
 // OMD MOVIE SEARCH
 function runMovie(movieTitle) {
-
+    // /check for user input
+    if(movieTitle === null || typeof movieTitle === 'undefined' || movieTitle === undefined ){
+        movieTitle = "Mr. Nobody";
+    } 
     // Then run a request to the OMDB API with the movie specified
 var queryUrl = "http://www.omdbapi.com/?t=" + movieTitle + "&y=&plot=short&apikey=trilogy";
 
@@ -109,29 +112,7 @@ request(queryUrl, function(error, response, body) {
   }
 });
 }
-// movie-this (command = node liri.js <movie name here>)
 
-// var request = require("request");
-
-// // Grab the movieName which will always be the third node argument.
-// var movieName = process.argv[2];
-
-// // Then run a request to the OMDB API with the movie specified
-// var queryUrl = "http://www.omdbapi.com/?t=" + movieName + "&y=&plot=short&apikey=trilogy";
-
-// // This line is just to help us debug against the actual URL.
-// console.log(queryUrl);
-
-// request(queryUrl, function(error, response, body) {
-
-//   // If the request is successful
-//   if (!error && response.statusCode === 200) {
-
-//     // Parse the body of the site and recover just the imdbRating
-//     // (Note: The syntax below for parsing isn't obvious. Just spend a few moments dissecting it).
-//     console.log("Release Year: " + JSON.parse(body).Year);
-//   }
-// });
 
 // DO WHAT IT SAYS COMMAND 
 function runDoWhatItSays() {
